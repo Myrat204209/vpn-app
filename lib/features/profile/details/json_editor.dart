@@ -1,9 +1,7 @@
-import 'dart:convert';
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math';
-import 'dart:ui';
 
-import 'package:dartx/dartx.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -473,7 +471,7 @@ class _JsonEditorState extends State<JsonEditor> {
     return needsRebuilding;
   }
 
-  void findMatchingKeys(data, String text, List nestedParents) {
+  void findMatchingKeys(dynamic data, String text, List nestedParents) {
     if (data is Map) {
       final keys = data.keys.toList();
       for (final key in keys) {
@@ -596,7 +594,7 @@ class _JsonEditorState extends State<JsonEditor> {
     scrollTo(_focusedKey!);
   }
 
-  void expandAllObjects(data, List expandedList) {
+  void expandAllObjects(dynamic data, List expandedList) {
     if (data is Map) {
       for (final entry in data.entries) {
         if (entry.value is Map || entry.value is List) {
